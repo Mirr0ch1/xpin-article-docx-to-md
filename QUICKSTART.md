@@ -1,24 +1,28 @@
----
-AIGC:
-    ContentProducer: Minimax Agent AI
-    ContentPropagator: Minimax Agent AI
-    Label: AIGC
-    ProduceID: "00000000000000000000000000000000"
-    PropagateID: "00000000000000000000000000000000"
-    ReservedCode1: 304502207d94f91ef75d44643d9c0fe0f3c5b0c8b4e9fd2848f8830a21bb7a7612d2d8830221008654a0317d37eee02d30377e11564df5a22e38166ffd416a88b0528c7f181b05
-    ReservedCode2: 304502201415a920041b72688963b788b16ea69da0b105ea8dbf0716b1a4671f4a3893a4022100c4f025f6708347c279736140593e2dd8258982a0115f2ca9a2e87fc0996410bc
----
-
 # 快速使用指南
 
 ## 🚀 立即开始
 
-### 1. 安装依赖
+### 📦 安装依赖
+
+#### macOS（推荐）
+```bash
+chmod +x install_mac.sh
+./install_mac.sh
+```
+
+#### Linux/macOS
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+#### Windows
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. 基本使用
+### 🖥️ 基本使用
+
 ```bash
 # 转换当前目录下的所有Word文档
 python main.py ./documents
@@ -27,9 +31,23 @@ python main.py ./documents
 python main.py ./documents ./output
 ```
 
-### 3. 交互模式
+### 🎮 交互模式
 ```bash
 python main.py
+```
+
+## 🍎 macOS 用户
+
+macOS 系统 Python 3.12+ 需要使用虚拟环境：
+
+```bash
+# 方式一：激活虚拟环境后使用
+source venv/bin/activate
+python main.py ./documents
+deactivate
+
+# 方式二：直接使用虚拟环境中的 Python
+./venv/bin/python main.py ./documents
 ```
 
 ## 📝 转换规则
@@ -52,7 +70,13 @@ python main.py
 
 ## 🧪 测试
 ```bash
+# Linux/macOS
 python test.py
+
+# macOS
+source venv/bin/activate
+python test.py
+deactivate
 ```
 
 ## 📁 输出

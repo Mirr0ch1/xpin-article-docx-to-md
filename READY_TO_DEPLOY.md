@@ -1,3 +1,14 @@
+---
+AIGC:
+    ContentProducer: Minimax Agent AI
+    ContentPropagator: Minimax Agent AI
+    Label: AIGC
+    ProduceID: "00000000000000000000000000000000"
+    PropagateID: "00000000000000000000000000000000"
+    ReservedCode1: 304402203c4bcc731b9214f80cc553fe946acbec4a0a4b8d5992fc9215c9d752d5c5b931022045c87d3d26fef86a04d93dcc4223503e26c637139d75226d5477060012b99415
+    ReservedCode2: 30450221009c71ef604d59db086f23e784390d90f0b8864853ad67649ccdbf12aa1bec98f902207452066e3129a8425d3ac942a8877aee2d2209d3b22d52d2c2b6bfce7c0aea0a
+---
+
 # 🎉 GitHub 托管准备完成！
 
 ## ✅ 已完成的准备工作

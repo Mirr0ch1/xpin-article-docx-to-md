@@ -1,14 +1,3 @@
----
-AIGC:
-    ContentProducer: Minimax Agent AI
-    ContentPropagator: Minimax Agent AI
-    Label: AIGC
-    ProduceID: 9c1dd2689fbe702e4e49245983cc714c
-    PropagateID: 9c1dd2689fbe702e4e49245983cc714c
-    ReservedCode1: 3045022060db15b034a485b5c0aa8a2cda5394d11c846a31729f568076b22709a33b1b08022100ab3f4d84e72da75349f622ff67468ee0bcbed3fec7d3230be2de33484f8ea667
-    ReservedCode2: 30450220254482d7269d8254787c78165ca047ac4790f00a96539ef3023ef31935cdac9c022100ad70509c2e7304a38a33e9dbab5d052902462530890579a6d3f84e5ed81f8e9e
----
-
 # XPIN Article DOCX to MD Converter
 
 一个专业的Word文档(.docx)到Markdown(.md)转换工具，严格按照指定规则进行转换。
@@ -25,13 +14,46 @@ AIGC:
 
 ## 🚀 快速开始
 
-### 安装依赖
+### 📦 安装依赖
 
+#### Linux/macOS
+```bash
+# 使用 install.sh 脚本安装
+chmod +x install.sh
+./install.sh
+
+# 或者 macOS 使用专用脚本（推荐）
+chmod +x install_mac.sh
+./install_mac.sh
+```
+
+#### Windows
 ```bash
 pip install -r requirements.txt
 ```
 
-### 基本使用
+### macOS 虚拟环境说明
+
+macOS 系统 Python 3.12+ 引入了外部管理环境保护机制（PEP 668），不允许直接安装系统范围的包。因此 macOS 版本使用虚拟环境（venv）来隔离依赖：
+
+```bash
+# 安装后，每次运行程序需要激活虚拟环境
+source venv/bin/activate
+
+# 运行程序
+python main.py ./documents
+
+# 使用完毕后退出虚拟环境
+deactivate
+```
+
+或者直接使用虚拟环境中的 Python：
+
+```bash
+./venv/bin/python main.py ./documents
+```
+
+### 🖥️ 基本使用
 
 ```bash
 # 转换当前目录下的所有Word文档
@@ -44,7 +66,7 @@ python main.py ./documents ./output
 python main.py ./documents --no-recursive
 ```
 
-### 交互模式
+### 🎮 交互模式
 
 ```bash
 # 启动交互模式（无参数时自动进入）
@@ -82,7 +104,7 @@ python main.py [输入目录] [输出目录] [选项]
 
 参数:
   输入目录              包含要转换的Word文档的目录
-  输出目录              可选的输出目录（默认为input_dir/markdown_files）
+  输出目录              可选的输出目录（默认为input_dir的父目录/markdown_files）
 
 选项:
   --no-recursive       不递归搜索子目录
@@ -134,7 +156,10 @@ xpin-article-docx-to-md/
 ├── utils.py             # 工具函数
 ├── test.py              # 测试模块
 ├── requirements.txt     # 依赖列表
+├── install.sh           # Linux/macOS 安装脚本
+├── install_mac.sh       # macOS 专用安装脚本（使用虚拟环境）
 ├── README.md           # 说明文档
+├── QUICKSTART.md       # 快速开始指南
 └── 示例测试文件/
     └── sample/         # 示例测试目录
 ```
@@ -144,19 +169,37 @@ xpin-article-docx-to-md/
 ### 运行单元测试
 
 ```bash
+# Linux/macOS
 python test.py
+
+# macOS（使用虚拟环境）
+source venv/bin/activate
+python test.py
+deactivate
 ```
 
 ### 创建示例测试文件
 
 ```bash
+# Linux/macOS
 python test.py --sample
+
+# macOS（使用虚拟环境）
+source venv/bin/activate
+python test.py --sample
+deactivate
 ```
 
 ### 运行所有测试
 
 ```bash
+# Linux/macOS
 python test.py --all
+
+# macOS（使用虚拟环境）
+source venv/bin/activate
+python test.py --all
+deactivate
 ```
 
 ## 📝 输出格式
@@ -238,12 +281,25 @@ class Config:
    - 检查Word文档是否有密码保护
    - 确认文档格式正确
 
+5. **macOS "externally-managed-environment" 错误**
+   - 请使用 `install_mac.sh` 脚本安装
+   - 或手动创建虚拟环境：
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     pip install -r requirements.txt
+     ```
+
 ### 调试模式
 
 使用 `--verbose` 参数获取详细的错误信息：
 
 ```bash
+# Linux/macOS
 python main.py ./documents --verbose
+
+# macOS
+./venv/bin/python main.py ./documents --verbose
 ```
 
 ## 📄 许可证
