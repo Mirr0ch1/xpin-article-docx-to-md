@@ -24,14 +24,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Windows (PowerShell)
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-# 或者使用 Homebrew
-brew install uv
 ```
 
 ### 🖥️ macOS 用户
-
-macOS 系统 Python 3.12+ 引入了外部管理环境保护机制（PEP 668），推荐使用 **uv** 来管理 Python 环境：
 
 #### 方式一：使用 uv（推荐）
 ```bash
@@ -200,19 +195,7 @@ xpin-article-docx-to-md/
     └── sample/         # 示例测试目录
 ```
 
-## 🧪 测试
 
-### 运行单元测试
-
-```bash
-# 使用 uv（推荐）
-uv run python test.py
-
-# 或激活虚拟环境后使用
-source venv/bin/activate
-python test.py
-deactivate
-```
 
 ### 创建示例测试文件
 

@@ -12,9 +12,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Windows (PowerShell)
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-# 或使用 Homebrew
-brew install uv
 ```
 
 ### 🖥️ 使用 uv 运行
