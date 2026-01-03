@@ -14,66 +14,102 @@
 
 ## 🚀 快速开始
 
-### 📦 安装依赖
+### 📦 安装 uv（推荐）
 
-#### Linux/macOS
+uv 是一个极速的 Python 包管理工具，推荐用于所有平台：
+
 ```bash
-# 使用 install.sh 脚本安装
-chmod +x install.sh
-./install.sh
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# 或者 macOS 使用专用脚本（推荐）
+# Windows (PowerShell)
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# 或者使用 Homebrew
+brew install uv
+```
+
+### 🖥️ macOS 用户
+
+macOS 系统 Python 3.12+ 引入了外部管理环境保护机制（PEP 668），推荐使用 **uv** 来管理 Python 环境：
+
+#### 方式一：使用 uv（推荐）
+```bash
+# 创建虚拟环境并安装依赖
+uv venv
+uv pip install -r requirements.txt
+
+# 运行程序（uv run 会自动使用虚拟环境）
+uv run python main.py ./documents
+
+# 运行测试
+uv run python test.py
+uv run python test.py --sample
+```
+
+#### 方式二：使用 install_mac.sh
+```bash
 chmod +x install_mac.sh
 ./install_mac.sh
-```
 
-#### Windows
-```bash
-pip install -r requirements.txt
-```
-
-### macOS 虚拟环境说明
-
-macOS 系统 Python 3.12+ 引入了外部管理环境保护机制（PEP 668），不允许直接安装系统范围的包。因此 macOS 版本使用虚拟环境（venv）来隔离依赖：
-
-```bash
-# 安装后，每次运行程序需要激活虚拟环境
+# 激活虚拟环境后使用
 source venv/bin/activate
-
-# 运行程序
 python main.py ./documents
-
-# 使用完毕后退出虚拟环境
 deactivate
+
+# 或直接使用虚拟环境中的 Python
+./venv/bin/python main.py ./documents
 ```
 
-或者直接使用虚拟环境中的 Python：
+### 🐧 Linux 用户
+
+#### 使用 uv（推荐）
+```bash
+uv venv
+uv pip install -r requirements.txt
+uv run python main.py ./documents
+```
+
+#### 或使用安装脚本
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+### 🪟 Windows 用户
 
 ```bash
-./venv/bin/python main.py ./documents
+# 使用 uv（推荐）
+uv venv
+uv pip install -r requirements.txt
+uv run python main.py ./documents
+
+# 或直接使用 pip
+pip install -r requirements.txt
+python main.py ./documents
 ```
 
 ### 🖥️ 基本使用
 
 ```bash
 # 转换当前目录下的所有Word文档
-python main.py ./documents
+uv run python main.py ./documents
 
 # 指定输出目录
-python main.py ./documents ./output
+uv run python main.py ./documents ./output
 
 # 不递归搜索子目录
-python main.py ./documents --no-recursive
+uv run python main.py ./documents --no-recursive
 ```
 
 ### 🎮 交互模式
 
 ```bash
 # 启动交互模式（无参数时自动进入）
-python main.py
+uv run python main.py
 
 # 或者
-python main.py  # 不带参数启动交互模式
+uv run python main.py  # 不带参数启动交互模式
 ```
 
 ## 📋 转换规则
@@ -100,7 +136,7 @@ python main.py  # 不带参数启动交互模式
 ### 命令行参数
 
 ```bash
-python main.py [输入目录] [输出目录] [选项]
+uv run python main.py [输入目录] [输出目录] [选项]
 
 参数:
   输入目录              包含要转换的Word文档的目录
@@ -119,22 +155,22 @@ python main.py [输入目录] [输出目录] [选项]
 
 ```bash
 # 1. 基本转换
-python main.py ./my_documents
+uv run python main.py ./my_documents
 
 # 2. 指定输出目录
-python main.py ./my_documents ./my_output
+uv run python main.py ./my_documents ./my_output
 
 # 3. 不递归搜索子目录
-python main.py ./my_documents --no-recursive
+uv run python main.py ./my_documents --no-recursive
 
 # 4. 预览模式（不实际转换）
-python main.py ./my_documents --dry-run
+uv run python main.py ./my_documents --dry-run
 
 # 5. 列出将要转换的文件
-python main.py ./my_documents --list-files
+uv run python main.py ./my_documents --list-files
 
 # 6. 详细输出模式
-python main.py ./my_documents --verbose
+uv run python main.py ./my_documents --verbose
 ```
 
 ### 交互模式使用
@@ -169,10 +205,10 @@ xpin-article-docx-to-md/
 ### 运行单元测试
 
 ```bash
-# Linux/macOS
-python test.py
+# 使用 uv（推荐）
+uv run python test.py
 
-# macOS（使用虚拟环境）
+# 或激活虚拟环境后使用
 source venv/bin/activate
 python test.py
 deactivate
@@ -181,10 +217,10 @@ deactivate
 ### 创建示例测试文件
 
 ```bash
-# Linux/macOS
-python test.py --sample
+# 使用 uv（推荐）
+uv run python test.py --sample
 
-# macOS（使用虚拟环境）
+# 或激活虚拟环境后使用
 source venv/bin/activate
 python test.py --sample
 deactivate
@@ -193,10 +229,10 @@ deactivate
 ### 运行所有测试
 
 ```bash
-# Linux/macOS
-python test.py --all
+# 使用 uv（推荐）
+uv run python test.py --all
 
-# macOS（使用虚拟环境）
+# 或激活虚拟环境后使用
 source venv/bin/activate
 python test.py --all
 deactivate
@@ -266,7 +302,7 @@ class Config:
 
 1. **ImportError: No module named 'docx'**
    ```bash
-   pip install python-docx
+   uv pip install python-docx
    ```
 
 2. **权限错误**
@@ -282,12 +318,13 @@ class Config:
    - 确认文档格式正确
 
 5. **macOS "externally-managed-environment" 错误**
-   - 请使用 `install_mac.sh` 脚本安装
+   - 使用 uv 管理（推荐）
+   - 或使用 `install_mac.sh` 脚本安装
    - 或手动创建虚拟环境：
      ```bash
      python3 -m venv venv
      source venv/bin/activate
-     pip install -r requirements.txt
+     uv pip install -r requirements.txt
      ```
 
 ### 调试模式
@@ -295,10 +332,10 @@ class Config:
 使用 `--verbose` 参数获取详细的错误信息：
 
 ```bash
-# Linux/macOS
-python main.py ./documents --verbose
+# 使用 uv（推荐）
+uv run python main.py ./documents --verbose
 
-# macOS
+# 或使用虚拟环境
 ./venv/bin/python main.py ./documents --verbose
 ```
 

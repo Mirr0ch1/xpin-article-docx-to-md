@@ -2,55 +2,78 @@
 
 ## 🚀 立即开始
 
-### 📦 安装依赖
+### 📦 安装 uv（推荐）
 
-#### macOS（推荐）
+uv 是一个极速的 Python 包管理工具：
+
 ```bash
-chmod +x install_mac.sh
-./install_mac.sh
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# 或使用 Homebrew
+brew install uv
 ```
 
-#### Linux/macOS
-```bash
-chmod +x install.sh
-./install.sh
-```
-
-#### Windows
-```bash
-pip install -r requirements.txt
-```
-
-### 🖥️ 基本使用
+### 🖥️ 使用 uv 运行
 
 ```bash
-# 转换当前目录下的所有Word文档
-python main.py ./documents
+# 创建虚拟环境并安装依赖
+uv venv
+uv pip install -r requirements.txt
 
-# 指定输出目录
-python main.py ./documents ./output
-```
+# 运行程序
+uv run python main.py ./documents
 
-### 🎮 交互模式
-```bash
-python main.py
+# 运行测试
+uv run python test.py
 ```
 
 ## 🍎 macOS 用户
 
-macOS 系统 Python 3.12+ 需要使用虚拟环境：
+macOS 系统 Python 3.12+ 需要使用 uv 或虚拟环境：
 
 ```bash
-# 方式一：激活虚拟环境后使用
+# 方式一：使用 uv（推荐，最简单）
+uv run python main.py ./documents
+
+# 方式二：激活虚拟环境后使用
 source venv/bin/activate
 python main.py ./documents
 deactivate
 
-# 方式二：直接使用虚拟环境中的 Python
+# 方式三：直接使用虚拟环境中的 Python
 ./venv/bin/python main.py ./documents
 ```
 
-## 📝 转换规则
+## 🐧 Linux 用户
+
+```bash
+# 使用 uv（推荐）
+uv run python main.py ./documents
+
+# 或使用安装脚本
+chmod +x install.sh
+./install.sh
+python main.py ./documents
+```
+
+## 🪟 Windows 用户
+
+```bash
+# 使用 uv（推荐）
+uv venv
+uv pip install -r requirements.txt
+uv run python main.py ./documents
+
+# 或直接使用 pip
+pip install -r requirements.txt
+python main.py ./documents
+```
+
+## 📝 转换规则（已内置进脚本，无需干预）
 
 ### ✅ 保留格式
 - 标题 (# ## ### 等)
@@ -70,10 +93,10 @@ deactivate
 
 ## 🧪 测试
 ```bash
-# Linux/macOS
-python test.py
+# 使用 uv（推荐）
+uv run python test.py
 
-# macOS
+# 或激活虚拟环境后使用
 source venv/bin/activate
 python test.py
 deactivate
