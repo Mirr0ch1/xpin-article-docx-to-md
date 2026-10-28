@@ -1,6 +1,35 @@
-# XPIN Article DOCX to MD Converter
+<p align="center">
+  <img src="assets/readme/banner-zh-Hans.png" alt="XPIN DOCX to MD — 把 Word 文档转换为干净的 Markdown" width="100%">
+</p>
 
-一个专业的Word文档(.docx)到Markdown(.md)转换工具，严格按照指定规则进行转换。
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3">
+  <img src="https://img.shields.io/github/last-commit/Mirr0ch1/xpin-article-docx-to-md?style=for-the-badge&logo=git&logoColor=white&label=last%20commit" alt="Last commit">
+  <img src="https://img.shields.io/github/stars/Mirr0ch1/xpin-article-docx-to-md?style=for-the-badge&logo=github&label=stars" alt="Stars">
+  <img src="https://img.shields.io/badge/license-MIT-2ea44f?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT license">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Word-.docx-2B579A?style=for-the-badge&logo=microsoftword&logoColor=white" alt="Word .docx">
+  <img src="https://img.shields.io/badge/Markdown-.md-000000?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown">
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-555555?style=for-the-badge" alt="Cross-platform">
+  <img src="https://img.shields.io/badge/batch-directory-8A2BE2?style=for-the-badge" alt="Batch conversion">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/tests-unit%20tests-2ea44f?style=flat-square" alt="Unit tests">
+  <img src="https://img.shields.io/badge/uv-ready-2ea44f?style=flat-square" alt="uv ready">
+  <img src="https://img.shields.io/badge/rules-fixed-6e7781?style=flat-square" alt="Fixed conversion rules">
+</p>
+
+<h1 align="center">XPIN Article DOCX to MD Converter</h1>
+
+<p align="center">
+  <b>把 Word 文档转换为干净的 Markdown</b><br>
+  <sub>一个按固定规则工作的 .docx → .md 转换工具，保留标题和加粗，跳过图片。</sub>
+</p>
+
+---
 
 ## ✨ 功能特点
 
